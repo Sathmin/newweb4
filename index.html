@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A/L Nest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            margin: 20px;
+        }
+        .subject-box {
+            width: 200px;
+            height: 100px;
+            margin: 10px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .subject-box:hover {
+            background-color: #45a049;
+        }
+        .subject-page {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100%;
+            background-color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .subject-page.active {
+            display: block;
+        }
+        .resource-box {
+            width: 200px;
+            height: 100px;
+            margin: 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .resource-box:hover {
+            background-color: #1e88e5;
+        }
+        .resource-content {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100%;
+            background-color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .resource-content.active {
+            display: block;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            padding: 10px;
+            width: 100%;
+        }
+        footer i {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>A/L Nest - Arts</h2>
+        <a href="#" class="subject-box" onclick="showSubject('sinhala')">Sinhala</a>
+        <a href="#" class="subject-box" onclick="showSubject('bc')">Buddhist Civilization</a>
+        <a href="#" class="subject-box" onclick="showSubject('geography')">Geography</a>
+        <a href="#" class="subject-box" onclick="showSubject('media')">Media</a>
+        <a href="#" class="subject-box" onclick="showSubject('politics')">Political Science</a>
+    </div>
+
+    <div class="subject-page" id="sinhalaPage">
+        <a href="#" class="back-btn" onclick="backToHome()">Back to Home</a>
+        <h2>Sinhala</h2>
+        <a href="#" class="resource-box" onclick="showResource('sinhalaPastPapers')">Past Papers</a>
+        <a href="#" class="resource-box" onclick="showResource('sinhalaYouTube')">YouTube Links</a>
+    </div>
+    <div class="resource-content" id="sinhalaPastPapers">
+        <a href="#" class="back-btn" onclick="backToSubject('sinhala')">Back to Sinhala</a>
+        <h2>Sinhala - Past Papers</h2>
+        <ul>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2018/10/2015-AL-SINHALA-PART-I-PAPER-AlevelApi-PDF.pdf" target="_blank">2015 A/L Sinhala Past Paper (Sinhala Medium) Part I</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2018/10/2015-AL-SINHALA-PART-II-PAPER-AlevelApi-PDF.pdf" target="_blank">2015 A/L Sinhala Past Paper (Sinhala Medium) Part II</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2018/10/2016-AL-SINHALA-PART-I-PAPER-AlevelApi-PDF.pdf" target="_blank">2016 A/L Sinhala Past Paper (Sinhala Medium) Part I</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2018/10/2016-AL-SINHALA-PART-II-PAPER-AlevelApi-PDF.pdf" target="_blank">2016 A/L Sinhala Past Paper (Sinhala Medium) Part II</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2018/10/2017-AL-SINHALA-PART-I-PAPER-AlevelApi-PDF.pdf" target="_blank">2017 A/L Sinhala Past Paper (Sinhala Medium) Part I</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2018/10/2017-AL-SINHALA-PART-II-PAPER-AlevelApi-PDF.pdf" target="_blank">2017 A/L Sinhala Past Paper (Sinhala Medium) Part II</a></li>
+            <li><a href="https://pastpapers.wiki/download/22915/2018-a-l/56790/2018-al-sinhala-past-paper-sinhala-medium.pdf" target="_blank">2018 A/L Sinhala Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2019/11/2019-AL-SINHALA-PART-I-PAPER-NEW-SYLLABUS-SINHALA-MEDIUM-AlevelApi-PDF.pdf" target="_blank">2019 A/L Sinhala Past Paper (Sinhala Medium) Part I</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2019/11/2019-AL-SINHALA-PART-II-PAPER-NEW-SYLLABUS-SINHALA-MEDIUM-AlevelApi-PDF.pdf" target="_blank">2019 A/L Sinhala Past Paper (Sinhala Medium) Part II</a></li>
+            <li><a href="https://downloads.pastpapers.wiki/download/26/2020-a-l-past-papers/228/general-certificate-of-education-advanced-level-examination-2020-august-new-syllabus-sinhala.pdf" target="_blank">2020 A/L Sinhala Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2022/03/2021-AL-SINHALA-PART-I-PAPER-SINHALA-MEDIUM-AlevelApi-PDF.pdf" target="_blank">2021 A/L Sinhala Past Paper (Sinhala Medium) Part I</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2023/03/2021-AL-SINHALA-PART-II-PAPER-SINHALA-MEDIUM-AlevelApi-PDF2.pdf" target="_blank">2021 A/L Sinhala Past Paper (Sinhala Medium) Part II</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2024/09/2022-AL-SINHALA-PART-I-PAPER-SINHALA-MEDIUM-AlevelApi-PDF.pdf" target="_blank">2022 A/L Sinhala Past Paper (Sinhala Medium) Part I</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2024/09/2022-AL-SINHALA-PART-II-PAPER-SINHALA-MEDIUM-AlevelApi-PDF.pdf" target="_blank">2022 A/L Sinhala Past Paper (Sinhala Medium) Part II</a></li>
+            <li><a href="https://pastpapers.wiki/download/27227/2023-2024-a-l/71022/20232024-al-sinhala-paper.pdf" target="_blank">2023(2024) A/L Sinhala Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/31381/2024-a-l/85002/2024-al-sinhala-paper-sinhala-medium.pdf" target="_blank">2024 A/L Sinhala Past Paper (Sinhala Medium)</a></li>
+        </ul>
+    </div>
+    <div class="resource-content" id="sinhalaYouTube">
+        <a href="#" class="back-btn" onclick="backToSubject('sinhala')">Back to Sinhala</a>
+        <h2>Sinhala - YouTube Links</h2>
+        <ul>
+            <li><a href="https://youtube.com/playlist?list=PLmLnnsAHQpTblCjHTSE5gKk5Id-DN9CuL&si=TA4HyxIqw4BwCEgt" target="_blank">Sinhala Playlist 1</a></li>
+            <li><a href="https://youtu.be/DsQjcbLNqN0?si=LArzYhQnCtv32pXQ" target="_blank">Sinhala Tutorial Video 1</a></li>
+            <li><a href="https://youtu.be/wtlv30T8j1Y?si=WUPm8qC7nd10TvjS" target="_blank">Sinhala Tutorial Video 2</a></li>
+        </ul>
+    </div>
+
+    <div class="subject-page" id="bcPage">
+        <a href="#" class="back-btn" onclick="backToHome()">Back to Home</a>
+        <h2>Buddhist Civilization</h2>
+        <a href="#" class="resource-box" onclick="showResource('bcPastPapers')">Past Papers</a>
+        <a href="#" class="resource-box" onclick="showResource('bcYouTube')">YouTube Links</a>
+    </div>
+    <div class="resource-content" id="bcPastPapers">
+        <a href="#" class="back-btn" onclick="backToSubject('bc')">Back to Buddhist Civilization</a>
+        <h2>Buddhist Civilization - Past Papers</h2>
+        <ul>
+            <li><a href="https://pastpapers.wiki/download/22694/2015-a-l/56786/2015-al-buddhist-civilization-past-paper-sinhala-medium.pdf" target="_blank">2015 A/L Buddhist Civilization Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/22697/2016-a-l/56790/2016-al-buddhist-civilization-past-paper-sinhala-medium.pdf" target="_blank">2016 A/L Buddhist Civilization Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/22700/2017-a-l/56794/2017-al-buddhist-civilization-past-paper-sinhala-medium.pdf" target="_blank">2017 A/L Buddhist Civilization Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/22915/2018-a-l/56798/2018-al-buddhist-civilization-past-paper-sinhala-medium.pdf" target="_blank">2018 A/L Buddhist Civilization Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2019/10/2019-AL-BUDDHIST-CIVILIZATION-PART-I-MCQ-PAPER-SINHALA-MEDIUM-AlevelApi-PDF.pdf" target="_blank">2019 A/L Buddhist Civilization Past Paper (Sinhala Medium) Part I</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2019/10/2019-AL-BUDDHIST-CIVILIZATION-PART-II-PAPER-SINHALA-MEDIUM-AlevelApi-PDF.pdf" target="_blank">2019 A/L Buddhist Civilization Past Paper (Sinhala Medium) Part II</a></li>
+            <li><a href="https://pastpapers.wiki/download/22928/2020-a-l/56802/2020-al-buddhist-civilization-past-paper-sinhala-medium.pdf" target="_blank">2020 A/L Buddhist Civilization Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/14272/2021-a-l-past-papers/52663/2021-al-buddhist-civilization-past-paper-sinhala-medium.pdf" target="_blank">2021 A/L Buddhist Civilization Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/22285/2022-a-l-past-papers/69988/gce-advanced-level-2022-buddhist-civilization-sinhala-medium.pdf" target="_blank">2022 A/L Buddhist Civilization Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/27227/2023-2024-a-l/71318/20232024-al-buddhist-civilization-paper-sinhala-medium.pdf" target="_blank">2023(2024) A/L Buddhist Civilization Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/31381/2024-a-l/85014/2024-al-buddhist-civilization-paper-sinhala-medium.pdf" target="_blank">2024 A/L Buddhist Civilization Past Paper (Sinhala Medium)</a></li>
+        </ul>
+    </div>
+    <div class="resource-content" id="bcYouTube">
+        <a href="#" class="back-btn" onclick="backToSubject('bc')">Back to Buddhist Civilization</a>
+        <h2>Buddhist Civilization - YouTube Links</h2>
+        <ul>
+            <li><a href="https://youtu.be/BnVi_G-j2iA?si=-z1Zp76fgr_vH9MA" target="_blank">Buddhist Civilization Tutorial Video 1</a></li>
+            <li><a href="https://youtu.be/JmxJQgfBGg4?si=i-ebL2FvhntQaNgh" target="_blank">Buddhist Civilization Tutorial Video 2</a></li>
+        </ul>
+    </div>
+
+    <div class="subject-page" id="geographyPage">
+        <a href="#" class="back-btn" onclick="backToHome()">Back to Home</a>
+        <h2>Geography</h2>
+        <a href="#" class="resource-box" onclick="showResource('geographyPastPapers')">Past Papers</a>
+        <a href="#" class="resource-box" onclick="showResource('geographyYouTube')">YouTube Links</a>
+    </div>
+    <div class="resource-content" id="geographyPastPapers">
+        <a href="#" class="back-btn" onclick="backToSubject('geography')">Back to Geography</a>
+        <h2>Geography - Past Papers</h2>
+        <ul>
+            <li><a href="https://pastpapers.wiki/download/22694/2015-a-l/56806/2015-al-geography-past-paper-sinhala-medium.pdf" target="_blank">2015 A/L Geography Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/22697/2016-a-l/56810/2016-al-geography-past-paper-sinhala-medium.pdf" target="_blank">2016 A/L Geography Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/22700/2017-a-l/56814/2017-al-geography-past-paper-sinhala-medium.pdf" target="_blank">2017 A/L Geography Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/22915/2018-a-l/56818/2018-al-geography-past-paper-sinhala-medium.pdf" target="_blank">2018 A/L Geography Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2019/10/2019-AL-GEOGRAPHY-PART-I-MCQ-PAPER-SINHALA-MEDIUM-AlevelApi-PDF.pdf" target="_blank">2019 A/L Geography Past Paper (Sinhala Medium) Part I</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2019/10/2019-AL-GEOGRAPHY-PART-II-PAPER-SINHALA-MEDIUM-AlevelApi-PDF.pdf" target="_blank">2019 A/L Geography Past Paper (Sinhala Medium) Part II</a></li>
+            <li><a href="https://pastpapers.wiki/download/22928/2020-a-l/56822/2020-al-geography-past-paper-sinhala-medium.pdf" target="_blank">2020 A/L Geography Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/14272/2021-a-l-past-papers/52671/2021-al-geography-past-paper-sinhala-medium.pdf" target="_blank">2021 A/L Geography Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/22285/2022-a-l-past-papers/69992/gce-advanced-level-2022-geography-sinhala-medium.pdf" target="_blank">2022 A/L Geography Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/27227/2023-2024-a-l/71323/20232024-al-geography-paper-sinhala-medium.pdf" target="_blank">2023(2024) A/L Geography Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/31381/2024-a-l/85019/2024-al-geography-paper-sinhala-medium.pdf" target="_blank">2024 A/L Geography Past Paper (Sinhala Medium)</a></li>
+        </ul>
+    </div>
+    <div class="resource-content" id="geographyYouTube">
+        <a href="#" class="back-btn" onclick="backToSubject('geography')">Back to Geography</a>
+        <h2>Geography - YouTube Links</h2>
+        <ul>
+            <li><a href="https://youtube.com/playlist?list=PLmLnnsAHQpTZ3VAO3fmJYG8muG8D5C3lz&si=ZiMxyLtKOuDTSQwn" target="_blank">Geography Playlist 1</a></li>
+            <li><a href="https://youtube.com/playlist?list=PLobE3dJSDAcR_uAN6AZ2FBGERzHJ5EG1a&si=9eqSq4pxTb1TM0fn" target="_blank">Geography Playlist 2</a></li>
+            <li><a href="https://youtube.com/playlist?list=PL2PPgI5K1JB-5h5KkvpIoTEs1Xcq7w-Tk&si=NrSgARuQsA0kNYis" target="_blank">Geography Playlist 3</a></li>
+            <li><a href="https://youtube.com/playlist?list=PLNuFbJnZ0Ovw9Gc9M8NfL-wBv6ra_KuM8&si=CSMyKtaEnqpo5Mwz" target="_blank">Geography Playlist 4</a></li>
+            <li><a href="https://youtube.com/playlist?list=PLNBLzIqxyN_hkLm-YO0LbMk3pEHZiJMlJ&si=TkMiQlVLPvdj07xe" target="_blank">Geography Playlist 5</a></li>
+        </ul>
+    </div>
+
+    <div class="subject-page" id="mediaPage">
+        <a href="#" class="back-btn" onclick="backToHome()">Back to Home</a>
+        <h2>Media</h2>
+        <a href="#" class="resource-box" onclick="showResource('mediaPastPapers')">Past Papers</a>
+        <a href="#" class="resource-box" onclick="showResource('mediaYouTube')">YouTube Links</a>
+    </div>
+    <div class="resource-content" id="mediaPastPapers">
+        <a href="#" class="back-btn" onclick="backToSubject('media')">Back to Media</a>
+        <h2>Media - Past Papers</h2>
+        <ul>
+            <li><a href="https://pastpapers.wiki/download/23316/cdn/58530/2015-al-media-past-paper-sinhala-medium-2.pdf" target="_blank">2015 A/L Media Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/23316/cdn/58536/2016-al-media-past-paper-sinhala-medium-2.pdf" target="_blank">2016 A/L Media Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://drive.google.com/file/d/1j5oSr6hxxR5loQCwJArrCVDcRjOybmmR/view?usp=sharing" target="_blank">2017 A/L Media Past Paper (Sinhala Medium) [Note: Verify accessibility]</a></li>
+            <li><a href="https://pastpapers.wiki/download/23316/cdn/58546/2018-a-l-media-past-paper-sinhala-medium.pdf" target="_blank">2018 A/L Media Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/23316/cdn/58526/2019-a-l-media-past-paper-sinhala-medium.pdf" target="_blank">2019 A/L Media Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/23316/cdn/58524/2020-al-media-past-paper-sinhala-medium-2.pdf" target="_blank">2020 A/L Media Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/14272/2021-a-l-past-papers/57811/2021-al-media-past-paper-sinhala-medium-2.pdf" target="_blank">2021 A/L Media Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/22285/2022-a-l-past-papers/55318/2022-al-communication-and-media-studies-past-paper-sinhala-medium.pdf" target="_blank">2022 A/L Media Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/27227/2023-2024-a-l/71348/20232024-al-media-paper-sinhala-medium.pdf" target="_blank">2023(2024) A/L Media Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/31381/2024-a-l/85046/2024-al-media-paper-sinhala-medium.pdf" target="_blank">2024 A/L Media Past Paper (Sinhala Medium)</a></li>
+        </ul>
+    </div>
+    <div class="resource-content" id="mediaYouTube">
+        <a href="#" class="back-btn" onclick="backToSubject('media')">Back to Media</a>
+        <h2>Media - YouTube Links</h2>
+        <ul>
+            <li><a href="https://youtube.com/playlist?list=PLOaeyG21pfdCD81ew4WJuaCupYrO2HZFw&si=OGueNhqsvWK-W8wv" target="_blank">Media Playlist 1</a></li>
+            <li><a href="https://youtube.com/playlist?list=PLCvxi8ErQQ6-Af0Qz1HCt36ck_A0lbfAj&si=gaz2GqXSF4XMp9R_" target="_blank">Media Playlist 2</a></li>
+            <li><a href="https://youtube.com/playlist?list=PLmLnnsAHQpTbIORMaNC1hXaT5GgD5MYc7&si=9HncfeiqYmhFJEhG" target="_blank">Media Playlist 3</a></li>
+            <li><a href="https://youtu.be/ecjG9u-KrLY?si=sfWqlc6A9Za8GKH4" target="_blank">Media Tutorial Video 1</a></li>
+        </ul>
+    </div>
+
+    <div class="subject-page" id="politicsPage">
+        <a href="#" class="back-btn" onclick="backToHome()">Back to Home</a>
+        <h2>Political Science</h2>
+        <a href="#" class="resource-box" onclick="showResource('politicsPastPapers')">Past Papers</a>
+        <a href="#" class="resource-box" onclick="showResource('politicsYouTube')">YouTube Links</a>
+    </div>
+    <div class="resource-content" id="politicsPastPapers">
+        <a href="#" class="back-btn" onclick="backToSubject('politics')">Back to Political Science</a>
+        <h2>Political Science - Past Papers</h2>
+        <ul>
+            <li><a href="https://pastpapers.wiki/download/22694/2015-a-l/56814/2015-al-political-science-past-paper-sinhala-medium.pdf" target="_blank">2015 A/L Political Science Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/22697/2016-a-l/56818/2016-al-political-science-past-paper-sinhala-medium.pdf" target="_blank">2016 A/L Political Science Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/22700/2017-a-l/56822/2017-al-political-science-past-paper-sinhala-medium.pdf" target="_blank">2017 A/L Political Science Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/22915/2018-a-l/56826/2018-al-political-science-past-paper-sinhala-medium.pdf" target="_blank">2018 A/L Political Science Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2019/10/2019-AL-POLITICAL-SCIENCE-PART-I-MCQ-PAPER-SINHALA-MEDIUM-AlevelApi-PDF.pdf" target="_blank">2019 A/L Political Science Past Paper (Sinhala Medium) Part I</a></li>
+            <li><a href="https://www.alevelapi.com/wp-content/uploads/2019/10/2019-AL-POLITICAL-SCIENCE-PART-II-PAPER-SINHALA-MEDIUM-AlevelApi-PDF.pdf" target="_blank">2019 A/L Political Science Past Paper (Sinhala Medium) Part II</a></li>
+            <li><a href="https://pastpapers.wiki/download/22928/2020-a-l/56830/2020-al-political-science-past-paper-sinhala-medium.pdf" target="_blank">2020 A/L Political Science Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/14272/2021-a-l-past-papers/52679/2021-al-political-science-past-paper-sinhala-medium.pdf" target="_blank">2021 A/L Political Science Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/22285/2022-a-l-past-papers/69994/gce-advanced-level-2022-political-science-sinhala-medium.pdf" target="_blank">2022 A/L Political Science Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/27227/2023-2024-a-l/71328/20232024-al-political-science-paper-sinhala-medium.pdf" target="_blank">2023(2024) A/L Political Science Past Paper (Sinhala Medium)</a></li>
+            <li><a href="https://pastpapers.wiki/download/31381/2024-a-l/85024/2024-al-political-science-paper-sinhala-medium.pdf" target="_blank">2024 A/L Political Science Past Paper (Sinhala Medium)</a></li>
+        </ul>
+    </div>
+    <div class="resource-content" id="politicsYouTube">
+        <a href="#" class="back-btn" onclick="backToSubject('politics')">Back to Political Science</a>
+        <h2>Political Science - YouTube Links</h2>
+        <ul>
+            <li><a href="https://youtube.com/playlist?list=PLmLnnsAHQpTYewOmrKL8JDsE4SooUwaA6&si=p5XdejZOz1mig5Wg" target="_blank">Political Science Playlist 1</a></li>
+            <li><a href="https://www.youtube.com/live/WUSXiIiv9BU?si=RTgp7TC2BRRIwAwN" target="_blank">Political Science Tutorial Video 1</a></li>
+            <li><a href="https://youtu.be/SP7LMDNA7V0?si=_uRimK7kdFM51nIK" target="_blank">Political Science Tutorial Video 2</a></li>
+        </ul>
+    </div>
+
+    <footer>
+        <p><i>All rights reserved</i> | Powered by Sathmin OFC 2025©</p>
+    </footer>
+
+    <script>
+        function showSubject(subject) {
+            document.querySelector('.container').style.display = 'none';
+            document.getElementById(subject + 'Page').classList.add('active');
+        }
+
+        function showResource(resource) {
+            document.querySelectorAll('.subject-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(resource).classList.add('active');
+        }
+
+        function backToHome() {
+            document.querySelectorAll('.subject-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.querySelectorAll('.resource-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelector('.container').style.display = 'block';
+        }
+
+        function backToSubject(subject) {
+            document.querySelectorAll('.resource-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(subject + 'Page').classList.add('active');
+        }
+    </script>
+</body>
+</html>
